@@ -1,5 +1,6 @@
 
 import React from "react";
+import Button from "react-bootstrap/esm/Button";
 
 
 
@@ -15,7 +16,7 @@ const TodoItems = ({todo, onDelete}) =>{
                 
             </div>
             <div className="col-4">
-                <button onClick={() => onDelete(todo.id)}>X</button>
+                <Button variant="danger" onClick={() => onDelete(todo.id)}>X</Button>
                 
             </div>
         </div>
