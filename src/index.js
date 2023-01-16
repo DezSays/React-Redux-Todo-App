@@ -1,18 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
-import {createStore} from 'redux'; 
-import {Provider} from 'react-redux'
-import reducer from './reducers/reducer.js'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import TodoManagement from './components/TodoManagement';
+import BaseLayout from './layout/BaseLayout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())//reducer
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>
+  <React.StrictMode>
+    <Router>
+      <BaseLayout>
+      <Routes>
+        <Route path='/' element={<App />} />
+        <Route path='/todo' element={<TodoManagement />} />
+        
+      </Routes>
+      </BaseLayout>
+    </Router>
+  </React.StrictMode>
 );
+
